@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import movieData from './movieData.js';
 import React, { Component } from "react";
+import Movies from './Movies'
 
 class App extends Component {
   // console.log(movieData.movies);
@@ -14,11 +15,16 @@ class App extends Component {
   render() {
     console.log(this.state)
     return (
-      <main className="main-view">
-        <header className="header-view">
-          <h1>Rancid Tomatillos 🎬</h1>
-        </header>
-      </main>
+      <div className="app">
+        <nav className="nav-bar">
+          <header className="header">
+            <h1>Rancid Tomatillos 🎬</h1>
+          </header>
+        </nav>
+        <main className="main-section">
+          <Movies />
+        </main>
+      </div> 
     )
   }
 }
