@@ -6,7 +6,7 @@ import Movies from './Movies'
 
 class App extends Component {
   constructor() {
-    super() 
+    super()
     this.state = {
       movies: movieData.movies
     }
@@ -17,13 +17,13 @@ class App extends Component {
       <div className="app">
         <nav className="nav-bar">
           <header className="header">
-            <h1>Rancid Tomatillos 🎬</h1>
+            <h1>rancid tomatillos 🎬</h1>
           </header>
         </nav>
         <main className="main-section">
           <Movies movies={this.state.movies}/>
         </main>
-      </div> 
+      </div>
     )
   }
 }

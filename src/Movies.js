@@ -4,12 +4,14 @@ import './Movies.css'
 
 const Movies = (props) => {
     const  movieCards = props.movies.map(movie => {
+      const splitDate = movie.release_date.split('-')
+      const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
         return (
-            <Movie 
+            <Movie
                 poster={movie.poster_path}
                 title={movie.title}
                 avgRating={movie.average_rating.toFixed(1)}
-                releaseDate={movie.release_date}
+                releaseDate={newDate}
                 id={movie.id}
                 key={movie.id}
             />
