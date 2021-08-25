@@ -1,11 +1,10 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import movieData from './movieData.js';
 import React, { Component } from "react";
 import Movies from './Movies'
 
 class App extends Component {
-  // console.log(movieData.movies);
   constructor() {
     super() 
     this.state = {
@@ -13,7 +12,7 @@ class App extends Component {
     }
   }
   render() {
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <div className="app">
         <nav className="nav-bar">
@@ -22,7 +21,7 @@ class App extends Component {
           </header>
         </nav>
         <main className="main-section">
-          <Movies />
+          <Movies movies={this.state.movies}/>
         </main>
       </div> 
     )
