@@ -1,13 +1,13 @@
 import React from 'react';
 import './Movie.css'
 
-const Movie = (props) => {
+const Movie = ({id, poster, title, avgRating, releaseDate, getMovieInfo}) => {
     return  (
-        <div className="movie-card">
-            <img src={props.poster}></img>
-            <h2>{props.title}</h2>
-            <p>Rating: {props.avgRating}</p>
-            <p>Release Date: {props.releaseDate}</p>
+        <div className="movie-card" onClick={() => getMovieInfo(id)}>
+            <img src={poster}></img>
+            <h2>{title}</h2>
+            <p>Rating: {avgRating}</p>
+            <p>Release Date: {releaseDate}</p>
         </div>
     )
 }

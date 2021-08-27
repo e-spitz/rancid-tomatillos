@@ -1,11 +1,11 @@
 const apiCalls = {
-    getData(url) {
+    getMovieData(url) {
         return fetch(url)
         .then(res => res.json())
         .catch((err) => console.log(err))
     },
 
-    getSingleData(url) {
+    getSingleMovieData(url) {
         return fetch(url)
         .then(res => res.json())
         .catch((err) => console.log(err))

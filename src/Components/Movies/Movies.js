@@ -14,6 +14,7 @@ const Movies = (props) => {
                 releaseDate={newDate}
                 id={movie.id}
                 key={movie.id}
+                getMovieInfo={props.getMovieInfo}
             />
         )
     })
