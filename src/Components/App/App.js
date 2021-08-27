@@ -2,6 +2,7 @@ import './App.css';
 import React, { Component } from "react";
 import Movies from '../Movies/Movies'
 import movieData from '../../movieData';
+import MovieDetails from '../MovieDetails/MovieDetails';
 import apiCalls from '../../apiCalls'
 
 class App extends Component {
@@ -9,7 +10,7 @@ class App extends Component {
     super()
     this.state = {
       movies: movieData.movies,
-      movieInfo: '',
+      movieInfo: null,
       err: ''
     }
   }
@@ -22,10 +23,16 @@ class App extends Component {
     // .catch((err) => this.setState({error: err}))
 
     console.log(id)
+    const matchedMovie = this.state.movies.find(movie => movie.id === id);
+    this.setState({movieInfo: matchedMovie});
+    console.log(this.state.movieInfo)
+  }
+
+  goToMainView = () => {
+    this.setState( { movieInfo: null })
   }
 
   render() {
-    // console.log(this.state)
     return (
       <div className="app">
         <nav className="nav-bar">
@@ -34,7 +41,7 @@ class App extends Component {
           </header>
         </nav>
         <main className="main-section">
-           <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>
+           {this.state.movieInfo ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>}
         </main>
       </div>
     )

@@ -9,6 +9,7 @@ const Movies = (props) => {
         return (
             <Movie
                 poster={movie.poster_path}
+                background={movie.backdrop_path}
                 title={movie.title}
                 avgRating={movie.average_rating.toFixed(1)}
                 releaseDate={newDate}

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Movie.css'
 
-const Movie = ({id, poster, title, avgRating, releaseDate, getMovieInfo}) => {
+const Movie = ({id, poster, title, avgRating, releaseDate, backgorund, getMovieInfo}) => {
     return  (
         <div className="movie-card" onClick={() => getMovieInfo(id)}>
             <img src={poster}></img>
