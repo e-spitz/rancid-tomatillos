@@ -1,5 +1,5 @@
 import React from 'react';
-import Movie from './Movie';
+import Movie from '../Movie/Movie';
 import './Movies.css'
 
 const Movies = (props) => {

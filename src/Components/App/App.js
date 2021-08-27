@@ -1,8 +1,8 @@
 // import logo from './logo.svg';
 import './App.css';
-import movieData from './movieData.js';
+import movieData from '../../movieData.js';
 import React, { Component } from "react";
-import Movies from './Movies'
+import Movies from '../Movies/Movies'
 
 class App extends Component {
   constructor() {
@@ -21,7 +21,7 @@ class App extends Component {
           </header>
         </nav>
         <main className="main-section">
-          <Movies movies={this.state.movies}/>
+           <Movies movies={this.state.movies}/>
         </main>
       </div>
     )
