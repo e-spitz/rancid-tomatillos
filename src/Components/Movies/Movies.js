@@ -1,5 +1,5 @@
 import React from 'react';
-import Movie from './Movie';
+import Movie from '../Movie/Movie';
 import './Movies.css'
 
 const Movies = (props) => {
@@ -9,11 +9,13 @@ const Movies = (props) => {
         return (
             <Movie
                 poster={movie.poster_path}
+                background={movie.backdrop_path}
                 title={movie.title}
                 avgRating={movie.average_rating.toFixed(1)}
                 releaseDate={newDate}
                 id={movie.id}
                 key={movie.id}
+                getMovieInfo={props.getMovieInfo}
             />
         )
     })
