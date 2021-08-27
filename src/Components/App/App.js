@@ -1,8 +1,9 @@
 // import logo from './logo.svg';
 import './App.css';
-import movieData from '../../movieData.js';
 import React, { Component } from "react";
 import Movies from '../Movies/Movies'
+import movieData from '../../movieData';
+import apiCalls from '../../apiCalls'
 
 class App extends Component {
   constructor() {
