@@ -9,13 +9,20 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       movieInfo: null,
       err: ''
     }
   }
 
+  componentDidMount = () => {
+    const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies`
+    apiCalls.getMovieData(url)
+    .then(data => this.setState({ movies: data.movies }))
+  }
+
   getMovieInfo = (id) => {
+    this.setState( { movies: [] })
     const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
     apiCalls.getSingleMovieData(url)
     .then(data => this.setState({ movieInfo: data.movie }))
@@ -24,6 +31,9 @@ class App extends Component {
 
   goToMainView = () => {
     this.setState( { movieInfo: null })
+    const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies`
+    apiCalls.getMovieData(url)
+    .then(data => this.setState({ movies: data.movies }))
   }
 
   render() {
@@ -35,7 +45,8 @@ class App extends Component {
           </header>
         </nav>
         <main className="main-section">
-           {this.state.movieInfo ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>}
+          {this.state.movieInfo !== null && <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView}/>}
+           {!this.state.movies.length ? <h2>Loading Movies...</h2> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>}
         </main>
       </div>
     )
