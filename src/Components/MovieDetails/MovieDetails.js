@@ -2,8 +2,9 @@ import React from 'react';
 import './MovieDetails.css'
 
 const MovieDetails = (props) => {
-    let { movie } = props
-    console.log(props.movie)
+    const { movie } = props
+    const splitDate = movie.release_date.split('-')
+    const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
     return  (
         <div className="movie-card-info" >
             <button onClick={() => props.goToMainView()}>Go Back!</button>
@@ -11,7 +12,7 @@ const MovieDetails = (props) => {
             <img src={movie.backdrop_path}></img>
             <h2>{movie.title}</h2>
             <p>Rating: {movie.average_rating.toFixed(1)}</p>
-            <p>Release Date: {movie.release_date}</p>
+            <p>Release Date: {newDate}</p>
         </div>
     )
 }
