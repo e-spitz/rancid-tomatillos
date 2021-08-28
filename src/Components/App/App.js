@@ -11,6 +11,7 @@ class App extends Component {
     this.state = {
       movies: [],
       movieInfo: null,
+      videos: [],
       err: ''
     }
   }
@@ -19,7 +20,7 @@ class App extends Component {
     const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies`
     apiCalls.getMovieData(url)
     .then(data => this.setState({ movies: data.movies }))
-    .catch((err) => this.setState({error: err}))
+    .catch(err => this.setState({error: err}))
   }
 
   getMovieInfo = (id) => {
@@ -27,7 +28,14 @@ class App extends Component {
     const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
     apiCalls.getMovieData(url)
     .then(data => this.setState({ movieInfo: data.movie }))
-    .catch((err) => this.setState({error: err}))
+    .catch(err => this.setState({error: err}))
+  }
+
+  getMovieTrailer = (id) => {
+    const video = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`
+    apiCalls.getMovieData(video)
+    .then(data => this.setState({ videos: data.videos.find(video => video.type === "Trailer") }))
+    .catch(err => this.setState({ error: err }))
   }
 
   goToMainView = () => {
@@ -46,7 +54,7 @@ class App extends Component {
           </header>
         </nav>
         <main className="main-section">
-          {!this.state.movies.length ? <h2>Loading Movies...</h2> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>}
+          {!this.state.movies.length ? <h2>Loading Movies...</h2> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}
           {this.state.movieInfo && <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView}/>}
           {/* {this.state.movieInfo ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>} */}
         </main>
