@@ -16,16 +16,10 @@ class App extends Component {
   }
 
   getMovieInfo = (id) => {
-    // const url = `https://rancid-tomatillos.herokuapp.com/api/v2${id}`
-    // apiCalls.getSingleMovieData(url)
-    // .then(data => this.setState({ movieInfo: data }))
-    // // .then(data => console.log(data))
-    // .catch((err) => this.setState({error: err}))
-
-    console.log(id)
-    const matchedMovie = this.state.movies.find(movie => movie.id === id);
-    this.setState({movieInfo: matchedMovie});
-    console.log(this.state.movieInfo)
+    const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
+    apiCalls.getSingleMovieData(url)
+    .then(data => this.setState({ movieInfo: data.movie }))
+    .catch((err) => this.setState({error: err}))
   }
 
   goToMainView = () => {

@@ -3,7 +3,7 @@ import './MovieDetails.css'
 
 const MovieDetails = (props) => {
     let { movie } = props
-    console.log(props.movieInfo)
+    console.log(props.movie)
     return  (
         <div className="movie-card-info" >
             <button onClick={() => props.goToMainView()}>Go Back!</button>
