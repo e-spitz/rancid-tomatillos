@@ -6,7 +6,6 @@ const MovieDetails = (props) => {
     const splitDate = movie.release_date.split('-')
     const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
     const videoLink = `https://www.youtube.com/embed/${props.trailer.key}`
-    console.log(videoLink);
     return  (
         <div className="movie-card-info" >
             <button onClick={() => props.goToMainView()}>Go Back!</button>
