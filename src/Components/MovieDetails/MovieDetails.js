@@ -10,7 +10,7 @@ const MovieDetails = (props) => {
             <img src={movie.poster_path}></img>
             <img src={movie.backdrop_path}></img>
             <h2>{movie.title}</h2>
-            <p>Rating: {movie.average_rating}</p>
+            <p>Rating: {movie.average_rating.toFixed(1)}</p>
             <p>Release Date: {movie.release_date}</p>
         </div>
     )
