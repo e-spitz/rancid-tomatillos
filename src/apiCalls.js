@@ -1,15 +1,14 @@
 const apiCalls = {
     getMovieData(url) {
         return fetch(url)
-        .then(res => res.json())
-        .catch((err) => console.log(err))
-    },
-
-    getSingleMovieData(url) {
-        return fetch(url)
-        .then(res => res.json())
-        .catch((err) => console.log(err))
+        .then(response => {
+        if (!response.ok || response.status === 500) {
+          throw Error('Error fetching movies')
+        }
+        return response.json()
+      })
     }
+
 }
 
 export default apiCalls;

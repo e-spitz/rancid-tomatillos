@@ -9,27 +9,40 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: movieData.movies,
+      movies: [],
       movieInfo: null,
+      video: [],
       err: ''
     }
   }
 
-  getMovieInfo = (id) => {
-    // const url = `https://rancid-tomatillos.herokuapp.com/api/v2${id}`
-    // apiCalls.getSingleMovieData(url)
-    // .then(data => this.setState({ movieInfo: data }))
-    // // .then(data => console.log(data))
-    // .catch((err) => this.setState({error: err}))
+  componentDidMount = () => {
+    const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies`
+    apiCalls.getMovieData(url)
+    .then(data => this.setState({ movies: data.movies }))
+    .catch(err => this.setState({error: err}))
+  }
 
-    console.log(id)
-    const matchedMovie = this.state.movies.find(movie => movie.id === id);
-    this.setState({movieInfo: matchedMovie});
-    console.log(this.state.movieInfo)
+  getMovieInfo = (id) => {
+    this.setState( { movies: [] })
+    const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
+    apiCalls.getMovieData(url)
+    .then(data => this.setState({ movieInfo: data.movie }))
+    .catch(err => this.setState({error: err}))
+  }
+
+  getMovieTrailer = (id) => {
+    const video = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`
+    apiCalls.getMovieData(video)
+    .then(data => this.setState({ video: data.videos.find(video => video.type === "Trailer") }))
+    .catch(err => this.setState({ error: err }))
   }
 
   goToMainView = () => {
     this.setState( { movieInfo: null })
+    const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies`
+    apiCalls.getMovieData(url)
+    .then(data => this.setState({ movies: data.movies }))
   }
 
   render() {
@@ -41,7 +54,9 @@ class App extends Component {
           </header>
         </nav>
         <main className="main-section">
-           {this.state.movieInfo ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>}
+          {!this.state.movies.length ? <h2>Loading Movies...</h2> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}
+          {this.state.movieInfo && <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView} trailer={this.state.video}/>}
+          {/* {this.state.movieInfo ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>} */}
         </main>
       </div>
     )

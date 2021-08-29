@@ -16,6 +16,7 @@ const Movies = (props) => {
                 id={movie.id}
                 key={movie.id}
                 getMovieInfo={props.getMovieInfo}
+                getMovieTrailer={props.getMovieTrailer}
             />
         )
     })
