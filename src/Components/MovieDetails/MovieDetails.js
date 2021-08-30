@@ -1,6 +1,6 @@
 import React from 'react';
-import './MovieDetails.css'
 import PropTypes from 'prop-types';
+import './MovieDetails.css'
 
 const MovieDetails = ({movie, goToMainView, trailer}) => {
     const splitDate = movie.release_date.split('-')
@@ -29,9 +29,9 @@ const MovieDetails = ({movie, goToMainView, trailer}) => {
 }
 
 MovieDetails.propTypes = {
-    movie: PropTypes.object,
-    goToMainView: PropTypes.func,
-    trailer: PropTypes.object
+    movie: PropTypes.object.isRequired,
+    goToMainView: PropTypes.func.isRequired,
+    trailer: PropTypes.object.isRequired
 }
 
 export default MovieDetails;
