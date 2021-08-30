@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from '../Movie/Movie';
+import PropTypes from 'prop-types';
 import './Movies.css'
 
 const Movies = (props) => {
@@ -26,6 +27,11 @@ const Movies = (props) => {
           {movieCards}
         </div>
       )
+}
+
+Movies.propTypes = {
+  getMovieInfo: PropTypes.func.isRequired,
+  getMovieTrailer: PropTypes.func.isRequired
 }
 
 export default Movies;
