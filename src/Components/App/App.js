@@ -5,20 +5,19 @@ import movieData from '../../movieData';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Loader from '../Loader/Loader';
 import apiCalls from '../../apiCalls'
-
+const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
 class App extends Component {
   constructor() {
     super()
     this.state = {
       movies: [],
       movieInfo: null,
-      video: [],
+      video: null,
       err: ''
     }
   }
 
   componentDidMount = () => {
-    const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies`
     apiCalls.getMovieData(url)
     .then(data => this.setState({ movies: data.movies }))
     .catch(err => this.setState({error: err}))
@@ -26,22 +25,19 @@ class App extends Component {
 
   getMovieInfo = (id) => {
     this.setState( { movies: [] })
-    const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`
-    apiCalls.getMovieData(url)
+    apiCalls.getMovieData(url + id)
     .then(data => this.setState({ movieInfo: data.movie }))
     .catch(err => this.setState({error: err}))
   }
 
   getMovieTrailer = (id) => {
-    const video = `https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`
-    apiCalls.getMovieData(video)
+    apiCalls.getMovieData(url + id + '/videos')
     .then(data => this.setState({ video: data.videos.find(video => video.type === "Trailer") }))
     .catch(err => this.setState({ error: err }))
   }
 
   goToMainView = () => {
     this.setState( { movieInfo: null })
-    const url = `https://rancid-tomatillos.herokuapp.com/api/v2/movies`
     apiCalls.getMovieData(url)
     .then(data => this.setState({ movies: data.movies }))
   }
