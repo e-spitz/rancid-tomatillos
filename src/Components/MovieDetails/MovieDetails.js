@@ -2,7 +2,6 @@ import React from 'react';
 import './MovieDetails.css'
 
 const MovieDetails = ({movie, goToMainView, trailer}) => {
-    // const { movie } = props
     const splitDate = movie.release_date.split('-')
     const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
     console.log(trailer.key)
