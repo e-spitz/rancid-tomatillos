@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Movies from '../Movies/Movies'
 import movieData from '../../movieData';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import Loader from '../Loader/Loader';
 import apiCalls from '../../apiCalls'
 
 class App extends Component {
@@ -54,7 +55,8 @@ class App extends Component {
           </header>
         </nav>
         <main className="main-section">
-          {!this.state.movies.length ? <h2>Loading Movies...</h2> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}
+          {/* <Loader /> */}
+          {!this.state.movies.length ? <Loader /> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}
           {this.state.movieInfo && <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView} trailer={this.state.video}/>}
           {/* {this.state.movieInfo ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>} */}
         </main>
