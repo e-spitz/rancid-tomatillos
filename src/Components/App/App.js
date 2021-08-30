@@ -55,10 +55,8 @@ class App extends Component {
           </header>
         </nav>
         <main className="main-section">
-          {/* <Loader /> */}
-          {!this.state.movies.length ? <Loader /> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}
-          {this.state.movieInfo && <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView} trailer={this.state.video}/>}
-          {/* {this.state.movieInfo ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo}/>} */}
+          {!this.state.movieInfo && !this.state.movies.length && <Loader />}
+          {this.state.movieInfo && !this.state.movies.length ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView} trailer={this.state.video}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}
         </main>
       </div>
     )
