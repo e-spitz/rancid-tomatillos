@@ -1,14 +1,15 @@
 import React from 'react';
 import './MovieDetails.css'
 
-const MovieDetails = (props) => {
-    const { movie } = props
+const MovieDetails = ({movie, goToMainView, trailer}) => {
     const splitDate = movie.release_date.split('-')
     const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
-    const videoLink = `https://www.youtube.com/embed/${props.trailer.key}`
+    console.log(trailer.key)
+    const videoLink = `https://www.youtube.com/embed/${trailer.key}`
+    console.log(videoLink)
     return  (
         <div className="movie-card-info" >
-            <button onClick={() => props.goToMainView()}>Go Back!</button>
+            <button onClick={() => goToMainView()}>Go Back!</button>
             <img src={movie.poster_path}></img>
             <img src={movie.backdrop_path}></img>
             <h2>{movie.title}</h2>
@@ -22,7 +23,7 @@ const MovieDetails = (props) => {
               src={videoLink}
               frameBorder='0'
               allowFullScreen
-            />
+            ></iframe>
         </div>
     )
 }
