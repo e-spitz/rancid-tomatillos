@@ -16,8 +16,6 @@ const MovieDetails = ({movie, goToMainView, trailer}) => {
             <h2>{movie.title}</h2>
             <p>Rating: {movie.average_rating.toFixed(1)}</p>
             <p>Release Date: {newDate}</p>
-            {/* <video>{videoLink}</video> */}
-            {/* <iframe src={videoLink} title="W3Schools Free Online Web Tutorials"></iframe> */}
             <iframe
               title='Embedded youtube'
               className='video'
