@@ -1,12 +1,12 @@
 import React from 'react';
 import './MovieDetails.css'
+import PropTypes from 'prop-types';
 
 const MovieDetails = ({movie, goToMainView, trailer}) => {
     const splitDate = movie.release_date.split('-')
     const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
-    console.log(trailer.key)
     const videoLink = `https://www.youtube.com/embed/${trailer.key}`
-    console.log(videoLink)
+
     return  (
         <div className="movie-card-info" >
             <button onClick={() => goToMainView()}>Go Back!</button>
@@ -26,6 +26,12 @@ const MovieDetails = ({movie, goToMainView, trailer}) => {
             ></iframe>
         </div>
     )
+}
+
+MovieDetails.propTypes = {
+    movie: PropTypes.object,
+    goToMainView: PropTypes.func,
+    trailer: PropTypes.object
 }
 
 export default MovieDetails;
