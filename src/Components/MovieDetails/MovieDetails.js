@@ -11,13 +11,18 @@ const MovieDetails = ({ movie, goToMainView, trailer }) => {
       <section className='movie-details' style={{ backgroundImage: `url(${movie.backdrop_path})` }}>
         <article className='movie-details-info'>
             <h2>{movie.title}</h2>
-            <p>Rating: {movie.average_rating.toFixed(1)}</p>
+            <h3>"{movie.tagline}"</h3>
+            <p>Avg Rating: {movie.average_rating.toFixed(1)}</p>
             <p>Release Date: {newDate}</p>
+            <p>Genre: {movie.genres}</p>
+            <p>Budget: {movie.budget}</p>
+            <p>Revenue: {movie.revenue}</p>
+            <p>Runtime: {movie.runtime} minutes</p>
             <div className='trailer-video'>
               <iframe
               title='Embedded youtube'
               className='video'
-              width='250'
+              width='450'
               height='200'
               src={videoLink}
               frameBorder='0'
