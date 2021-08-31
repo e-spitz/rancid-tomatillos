@@ -45,11 +45,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <nav className="nav-bar">
-          <header className="header">
-            <h1>rancid tomatillos 🎬</h1>
-          </header>
-        </nav>
+        <header className="header">
+          <h1>rancid tomatillos 🎬</h1>
+        </header>
         <main className="main-section">
           {!this.state.movieInfo && !this.state.movies.length && <Loader />}
           {this.state.movieInfo && !this.state.movies.length ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView} trailer={this.state.video}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}

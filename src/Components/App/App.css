@@ -2,18 +2,15 @@
   text-align: center;
   margin: 0;
   padding: 0;
-}
-
-.nav-bar {
-  padding: 0;
-  margin: 0;
+  background-color: black;
 }
 
 .header {
+  height: 15%;
   background-color: black;
   color: whitesmoke;
-  padding: 1em;
-  font-size: 2em;
+  font-size: 1.8em;
+  padding: .1em;
 }
 
 /* .App-logo {

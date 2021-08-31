@@ -1,18 +1,22 @@
 .movie-card {
-  border: 1px solid black;
   text-align: center;
   margin: 0;
   border-radius: 2%;
 }
 
-img {
-  height: 60%;
-  width: 60%;
-  border-radius: 5%;
+.movie-poster {
+  height: 100%;
+  width: 100%;
+  border-radius: 2%;
   border: 1px solid black;
-  margin-top: 1em;
+  transition: all .2s ease-in-out;
 }
+
 
 img:hover {
   cursor: pointer;
+  transform: scale(1.02);
+  -webkit-box-shadow: 0px 0px 10px 0px #FFF;
+  -moz-box-shadow: 0px 0px 10px 0px #FFF;
+  box-shadow: 0px 0px 10px 0px #FFF;
 }
