@@ -43,12 +43,12 @@ class App extends Component {
     apiCalls.getMovieData(url)
     .then(data => this.setState({ movies: data.movies }))
   }
-
-  getSelectedMovie = (id) => {
-    const result = this.state.movies.find(movie => movie.id === id)
-    console.log(result)
-    return result;
-  }
+  // 
+  // getSelectedMovie = (id) => {
+  //   const result = this.state.movies.find(movie => movie.id === id)
+  //   console.log(result)
+  //   return result;
+  // }
 
   render() {
     return (
@@ -59,10 +59,10 @@ class App extends Component {
         <main className="main-section">
           <Route exact path="/"
             render={() =>  <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>} />
-          <Route path="/movies/:id"  render={ ({ match }) => {
-            const findMovie = this.getMovieInfo(parseInt(match.params.id))
-            return <MovieDetails movie={findMovie} />
-          }}/>
+          // <Route path="/movies/:id"  render={ ({ match }) => {
+          //   const findMovie = this.getMovieInfo(parseInt(match.params.id))
+          //   return <MovieDetails movie={findMovie} />
+          // }}/>
         </main>
       </div>
     )
