@@ -7,10 +7,7 @@ const Movie = ({id, poster, title, avgRating, releaseDate, getMovieInfo, getMovi
           getMovieInfo(id);
           getMovieTrailer(id);
         }}>
-            <img src={poster}></img>
-            <h2>{title}</h2>
-            <p>Rating: {avgRating}</p>
-            <p>Release Date: {releaseDate}</p>
+            <img className='movie-poster' src={poster}></img>
         </div>
     )
 }

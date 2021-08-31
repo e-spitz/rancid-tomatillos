@@ -1,30 +1,32 @@
 import React from 'react';
 import './MovieDetails.css'
 
-const MovieDetails = ({movie, goToMainView, trailer}) => {
+const MovieDetails = ({ movie, goToMainView, trailer }) => {
     const splitDate = movie.release_date.split('-')
     const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
     console.log(trailer.key)
     const videoLink = `https://www.youtube.com/embed/${trailer.key}`
     console.log(videoLink)
     return  (
-        <div className="movie-card-info" >
-            <button onClick={() => goToMainView()}>Go Back!</button>
-            <img src={movie.poster_path}></img>
-            <img src={movie.backdrop_path}></img>
+      <section className='movie-details' style={{ backgroundImage: `url(${movie.backdrop_path})` }}>
+      <button onClick={() => goToMainView()}>&times;</button>
+        <article className='movie-details-info'>
             <h2>{movie.title}</h2>
             <p>Rating: {movie.average_rating.toFixed(1)}</p>
             <p>Release Date: {newDate}</p>
+            <div className='trailer-video'>
             <iframe
-              title='Embedded youtube'
-              className='video'
-              width='650'
-              height='380'
-              src={videoLink}
-              frameBorder='0'
-              allowFullScreen
+            title='Embedded youtube'
+            className='video'
+            width='250'
+            height='200'
+            src={videoLink}
+            frameBorder='0'
+            allowFullScreen
             ></iframe>
-        </div>
+            </div>
+        </article>
+      </section>
     )
 }
 
