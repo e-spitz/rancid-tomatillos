@@ -19,7 +19,7 @@ class MovieDetails extends Component {
 
   componentDidMount() {
     const { id } = this.props
-    
+
     apiCalls.getMovieInfo(id)
         .then(movie => this.setState({ movieInfo: movie.movie }))
         .catch(() => this.setState({ movieError: 'Having trouble finding movie information right now...please try again.'} ));
@@ -36,6 +36,7 @@ class MovieDetails extends Component {
       const {title, release_date, backdrop_path, poster_path, overview, genres, 
         budget, revenue, tagline, average_rating, runtime} = this.state.movieInfo;
         
+        // console.log(release_date.split())
       // const splitDate = release_date.split('-')
       // const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
       const videoLink = `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
