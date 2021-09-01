@@ -30,7 +30,7 @@ const MovieDetails = ({ movie, goToMainView, trailer }) => {
               allowFullScreen
               ></iframe>
             </div>
-            <Link to="/" className='back-btn'>Main View</Link>
+            <Link to="/">Main View</Link>
             <button onClick={() => goToMainView()}>&times;</button>
         </article>
       </section>

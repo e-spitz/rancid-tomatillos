@@ -51,7 +51,7 @@ class App extends Component {
         </header>
         <main className="main-section">
           <Route exact path="/" render={ () =>  <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}/>
-          <Route path="/337401" render={({ match }) => { console.log(match.params)}} />
+          {/* <Route path="/337401" render={({ match }) => { console.log(match.params)}} /> */}
         </main>
       </div>
     )
