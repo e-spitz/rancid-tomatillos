@@ -17,14 +17,9 @@ const Movie = ({id, poster, title, avgRating, releaseDate, getMovieInfo, getMovi
 
         <Link to={`/${id}`}>
             <div className="movie-card">
-                <img className='movie-poster' src={poster} alt={'Cover art image for ' + title}></img>
+                <img className='movie-poster' src={poster} alt={'Cover image for ' + title}></img>
             </div>
         </Link>
-
-
-        // <Link to={"/${id}"}>
-        //         <img className='movie-poster' src={poster} alt={'Cover art image for ' + title}></img>
-        // </Link>
     )
 }
 
@@ -34,8 +29,8 @@ Movie.propTypes = {
     title: PropTypes.string.isRequired,
     avgRating: PropTypes.string.isRequired,
     releaseDate: PropTypes.string.isRequired,
-    getMovieInfo: PropTypes.func.isRequired,
-    getMovieTrailer: PropTypes.func.isRequired
+    // getMovieInfo: PropTypes.func.isRequired,
+    // getMovieTrailer: PropTypes.func.isRequired
 }
 
 export default Movie;

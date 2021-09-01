@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Route } from 'react-router-dom';
 import apiCalls from '../../apiCalls'
 import './MovieDetails.css'
 const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
 
 // const MovieDetails = ({ movie, goToMainView, trailer }) => {
-    class MovieDetails extends Component {
-
-    // const splitDate = movie.release_date.split('-')
-    // const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
-    // const videoLink = `https://www.youtube.com/embed/${trailer.key}`
-
+class MovieDetails extends Component {
     constructor(props) {
       super(props);
       this.state = {
@@ -24,38 +18,46 @@ const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
   }
 
   componentDidMount() {
-    apiCalls.getMovieData(url + this.props.id)
+    const { id } = this.props
+    
+    apiCalls.getMovieInfo(id)
         .then(movie => this.setState({ movieInfo: movie.movie }))
         .catch(() => this.setState({ movieError: 'Having trouble finding movie information right now...please try again.'} ));
 
-      apiCalls.getMovieData(url + this.props.id + "/videos")
+      apiCalls.getMovieTrailer(id)
         .then(video => {this.setState({ movieTrailers: video.videos.find(video => video.type === "Trailer") })})
         .catch(() => this.setState({ videoError: 'Sorry, this video is currently unavailable.'}))
   }
 
-
-
     render() {
-      console.log(this.state.movieInfo)
-      console.log(this.state.movieTrailers)
+      // console.log(this.state.movieInfo)
+      // console.log(this.state.movieTrailers)
+
+      const {title, release_date, backdrop_path, poster_path, overview, genres, 
+        budget, revenue, tagline, average_rating, runtime} = this.state.movieInfo;
+        
+      // const splitDate = release_date.split('-')
+      // const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
+      const videoLink = `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
+
       return (
-      <section className='movie-details' style={{ backgroundImage: `url(${this.state.movieInfo.backdrop_path})` }}>
+      <section className='movie-details' style={{ backgroundImage: `url(${backdrop_path})` }}>
         <article className='movie-details-info'>
-            <h2>{this.state.movieInfo.title}</h2>
-            <h3>"{this.state.movieInfo.tagline}"</h3>
-            <p>Avg Rating: {this.state.movieInfo.average_rating}</p>
-            <p>Release Date: {this.state.movieInfo.release_date}</p>
-            <p>Genre: {this.state.movieInfo.genres}</p>
-            <p>Budget: {this.state.movieInfo.budget}</p>
-            <p>Revenue: {this.state.movieInfo.revenue}</p>
-            <p>Runtime: {this.state.movieInfo.runtime} minutes</p>
+            <h2>{title}</h2>
+            <h3>"{tagline}"</h3>
+            <p>Avg Rating: {average_rating}</p>
+            <p>Release Date: {release_date}</p>
+            <p>Genre: {genres}</p>
+            <p>Budget: {budget}</p>
+            <p>Revenue: {revenue}</p>
+            <p>Runtime: {runtime} minutes</p>
             <div className='trailer-video'>
               <iframe
               title='Embedded youtube'
               className='video'
               width='450'
               height='200'
-              src={`https://www.youtube.com/embed/${this.state.movieTrailers.key}`}
+              src={videoLink}
               frameBorder='0'
               allowFullScreen
               ></iframe>
@@ -67,10 +69,8 @@ const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
     }
 }
 
-// MovieDetails.propTypes = {
-//     movie: PropTypes.object.isRequired,
-//     goToMainView: PropTypes.func.isRequired,
-//     // trailer: PropTypes.object.isRequired
-// }
+MovieDetails.propTypes = {
+   movieInfo: PropTypes.object,
+}
 
 export default MovieDetails;

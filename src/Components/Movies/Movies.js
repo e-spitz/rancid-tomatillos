@@ -33,8 +33,8 @@ Movies.propTypes = {
   movieCards: PropTypes.array,
   splitDate: PropTypes.string,
   newDate: PropTypes.string,
-  getMovieInfo: PropTypes.func.isRequired,
-  getMovieTrailer: PropTypes.func.isRequired
+  // getMovieInfo: PropTypes.func.isRequired,
+  // getMovieTrailer: PropTypes.func.isRequired
 }
 
 export default Movies;
