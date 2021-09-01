@@ -1,5 +1,6 @@
 import './App.css';
 import React, { Component } from "react";
+import { Route } from 'react-router-dom';
 import Movies from '../Movies/Movies'
 // import movieData from '../../movieData';
 import MovieDetails from '../MovieDetails/MovieDetails';
@@ -49,8 +50,7 @@ class App extends Component {
           <h1>rancid tomatillos 🎬</h1>
         </header>
         <main className="main-section">
-          {!this.state.movieInfo && !this.state.movies.length && <Loader />}
-          {this.state.movieInfo && !this.state.movies.length ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView} trailer={this.state.video}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}
+          <Route path="/" render={ () =>  <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}/>
         </main>
       </div>
     )
@@ -58,3 +58,11 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+
+
+
+{/* {!this.state.movieInfo && !this.state.movies.length && <Loader />}
+{this.state.movieInfo && !this.state.movies.length ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView} trailer={this.state.video}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>} */}
