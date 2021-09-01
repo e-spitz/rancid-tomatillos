@@ -43,14 +43,13 @@ class App extends Component {
     apiCalls.getMovieData(url)
     .then(data => this.setState({ movies: data.movies }))
   }
-  // 
-  // getSelectedMovie = (id) => {
-  //   const result = this.state.movies.find(movie => movie.id === id)
-  //   console.log(result)
-  //   return result;
-  // }
+
+  getSelectedMovie = (id) => {
+    return this.state.movies.find(movie => movie.id === id)
+  }
 
   render() {
+
     return (
       <div className="app">
         <header className="header">
@@ -59,15 +58,31 @@ class App extends Component {
         <main className="main-section">
           <Route exact path="/"
             render={() =>  <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>} />
-          // <Route path="/movies/:id"  render={ ({ match }) => {
-          //   const findMovie = this.getMovieInfo(parseInt(match.params.id))
-          //   return <MovieDetails movie={findMovie} />
-          // }}/>
+          <Route exact path="/movies/:id"
+          render={({ match }) => {
+            const matchedID = parseInt(match.params.id)
+            console.log('matchedID', matchedID)
+            const matchedMovie = this.getSelectedMovie(matchedID)
+            console.log('matchedmovie', matchedMovie)
+            // return <MovieDetails {matchedMovie} goToMainView={this.goToMainView} trailer={this.state.video}/>
+
+          }}/>
         </main>
       </div>
     )
   }
 }
+
+export default App;
+
+// return <MovieDetails {...matchedMovie}/>
+// return <MovieDetails movie={matchedMovie} goToMainView={this.goToMainView} trailer={this.state.video}/>
+
+
+
+
+
+
 // <Route exact path="/:id"
 //   render={({ match }) => {
   //     const matchID = parseInt(match.params.id)
@@ -85,4 +100,3 @@ class App extends Component {
 // {this.state.movieInfo && !this.state.movies.length ? <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView} trailer={this.state.video}/> : <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}
 
 // <Route exact path="/" component={ Movies }/>
-export default App;
