@@ -1,6 +1,6 @@
 import './App.css';
 import React, { Component } from "react";
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import Movies from '../Movies/Movies'
 // import movieData from '../../movieData';
 import MovieDetails from '../MovieDetails/MovieDetails';
@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   getMovieInfo = (id) => {
-    this.setState( { movies: [] })
+    // this.setState( { movies: [] })
     apiCalls.getMovieData(url + id)
     .then(data => this.setState({ movieInfo: data.movie }))
     .catch(err => this.setState({error: err}))
@@ -44,14 +44,26 @@ class App extends Component {
   }
 
   render() {
+    // console.log(this.state.movieInfo)
+    // console.log(this.state.video)
     return (
       <div className="app">
         <header className="header">
+          <Link to="/">Main View</Link>
           <h1>rancid tomatillos 🎬</h1>
         </header>
         <main className="main-section">
           <Route exact path="/" render={ () =>  <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}/>
-          {/* <Route path="/337401" render={({ match }) => { console.log(match.params)}} /> */}
+
+          <Route path="/:id" render={({ match }) => <MovieDetails id={parseInt(match.params.id)} />}/>
+          
+          {/* <Route path="/:id" render={({ match }) => {
+            const movieId = parseInt(match.params.id);
+            console.log(movieId )
+            <MovieDetails id={movieId}/>
+          }} /> */}
+
+          {/* <Route path={`/${test}`} render={ () => { <MovieDetails movie={this.state.movieInfo} goToMainView={this.goToMainView} trailer={this.state.video}/> }}/> */}
         </main>
       </div>
     )

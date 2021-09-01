@@ -6,7 +6,7 @@ import './Movie.css'
 const Movie = ({id, poster, title, avgRating, releaseDate, getMovieInfo, getMovieTrailer}) => {
     // console.log(id)
     return  (
-        // <Link to={`/${id}`}></Link>
+        // <Link to={`/${id}`}>
         //     <div className="movie-card" onClick={() => {
         //     getMovieInfo(id);
         //     getMovieTrailer(id);
@@ -16,8 +16,15 @@ const Movie = ({id, poster, title, avgRating, releaseDate, getMovieInfo, getMovi
         // </Link>
 
         <Link to={`/${id}`}>
-                <img className='movie-poster' src={poster}></img>
+            <div className="movie-card">
+                <img className='movie-poster' src={poster} alt={'Cover art image for ' + title}></img>
+            </div>
         </Link>
+
+
+        // <Link to={"/${id}"}>
+        //         <img className='movie-poster' src={poster} alt={'Cover art image for ' + title}></img>
+        // </Link>
     )
 }
 

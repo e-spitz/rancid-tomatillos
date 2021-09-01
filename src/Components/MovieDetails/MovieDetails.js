@@ -31,16 +31,16 @@ const MovieDetails = ({ movie, goToMainView, trailer }) => {
               ></iframe>
             </div>
             <Link to="/">Main View</Link>
-            <button onClick={() => goToMainView()}>&times;</button>
+            {/* <button onClick={() => goToMainView()}>&times;</button> */}
         </article>
       </section>
     )
 }
 
-MovieDetails.propTypes = {
-    movie: PropTypes.object.isRequired,
-    goToMainView: PropTypes.func.isRequired,
-    trailer: PropTypes.object.isRequired
-}
+// MovieDetails.propTypes = {
+//     movie: PropTypes.object.isRequired,
+//     goToMainView: PropTypes.func.isRequired,
+//     // trailer: PropTypes.object.isRequired
+// }
 
 export default MovieDetails;
