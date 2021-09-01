@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <div className="app">
         <header className="header">
-          <Link to="/">Main View</Link>
+          {/* <Link to="/">Main View</Link> */}
           <h1>rancid tomatillos 🎬</h1>
         </header>
         <main className="main-section">
