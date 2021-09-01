@@ -5,7 +5,7 @@ import apiCalls from '../../apiCalls'
 import './MovieDetails.css'
 const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
 
-// const MovieDetails = ({ movie, goToMainView, trailer }) => {
+
 class MovieDetails extends Component {
     constructor(props) {
       super(props);
@@ -16,6 +16,12 @@ class MovieDetails extends Component {
           videoError: '',
       }
   }
+
+//     const splitDate = movie.release_date.split('-')
+//     const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
+//     const videoLink = `https://www.youtube.com/embed/${trailer.key}`
+//     const allGenres = movie.genres.map(genre => genre + ' ')
+
 
   componentDidMount() {
     const { id } = this.props
@@ -52,6 +58,7 @@ class MovieDetails extends Component {
             <p>Budget: {budget}</p>
             <p>Revenue: {revenue}</p>
             <p>Runtime: {runtime} minutes</p>
+
             <div className='trailer-video'>
               <iframe
               title='Embedded youtube'
@@ -69,6 +76,17 @@ class MovieDetails extends Component {
       )
     }
 }
+
+//             <h2>{movie.title}</h2>
+//             <h3>{movie.tagline}</h3>
+//             <h4 style={{display: !movie.overiew && "none"}}>{movie.overview}</h4>
+//             <p>Avg Rating: {movie.average_rating.toFixed(1)}</p>
+//             <p>Release Date: {newDate}</p>
+//             <p>Genre: {allGenres}</p>
+//             <p>Budget: {!movie.budget ? "Unavailable" : movie.budget}</p>
+//             <p>Revenue: {!movie.revenue ? "Unavailable" : movie.revenue}</p>
+//             <p>Runtime: {movie.runtime} minutes</p>
+
 
 MovieDetails.propTypes = {
    movieInfo: PropTypes.object,
