@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import Movies from '../Movies/Movies'
 // import movieData from '../../movieData';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import Loader from '../Loader/Loader';
+// import Loader from '../Loader/Loader';
 import apiCalls from '../../apiCalls'
 const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
 class App extends Component {
@@ -50,7 +50,8 @@ class App extends Component {
           <h1>rancid tomatillos 🎬</h1>
         </header>
         <main className="main-section">
-          <Route path="/" render={ () =>  <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}/>
+          <Route exact path="/" render={ () =>  <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}/>
+          <Route path="/337401" render={({ match }) => { console.log(match.params)}} />
         </main>
       </div>
     )
