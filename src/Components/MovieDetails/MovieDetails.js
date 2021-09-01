@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './MovieDetails.css'
 
 const MovieDetails = ({ movie, goToMainView, trailer }) => {
@@ -29,6 +30,7 @@ const MovieDetails = ({ movie, goToMainView, trailer }) => {
               allowFullScreen
               ></iframe>
             </div>
+            <Link to="/" className='back-btn'>Main View</Link>
             <button onClick={() => goToMainView()}>&times;</button>
         </article>
       </section>
