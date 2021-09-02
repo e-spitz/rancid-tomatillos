@@ -5,9 +5,9 @@ import './Error.css'
 const Error = () => {
     return (
         <div className='error'>
-            <h2> TEST </h2>
+            <h2> 404 Error </h2>
             <NavLink className='go-back' to='/'>
-                Go Back
+                Back to Movies
             </NavLink>
         </div>
     )
