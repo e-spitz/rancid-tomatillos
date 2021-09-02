@@ -7,7 +7,7 @@ const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
 
 
 class MovieDetails extends Component {
-    constructor(props) {
+    constructor({props}) {
       super(props);
       this.state = {
           movieInfo: {},
@@ -39,25 +39,27 @@ class MovieDetails extends Component {
       // console.log(this.state.movieInfo)
       // console.log(this.state.movieTrailers)
 
-      const {title, release_date, backdrop_path, poster_path, overview, genres, 
+      const {title, release_date, backdrop_path, poster_path, overview, genres,
         budget, revenue, tagline, average_rating, runtime} = this.state.movieInfo;
-        
+
         // console.log(release_date.split())
       // const splitDate = release_date.split('-')
       // const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
       const videoLink = `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
 
-      return (
-      <section className='movie-details' style={{ backgroundImage: `url(${backdrop_path})` }}>
-        <article className='movie-details-info'>
-            <h2>{title}</h2>
-            <h3>"{tagline}"</h3>
-            <p>Avg Rating: {average_rating}</p>
-            <p>Release Date: {release_date}</p>
-            <p>Genre: {genres}</p>
-            <p>Budget: {budget}</p>
-            <p>Revenue: {revenue}</p>
-            <p>Runtime: {runtime} minutes</p>
+        return (
+          <section className='movie-details' style={{ backgroundImage: `url(${backdrop_path})` }}>
+
+
+            <article className='movie-details-info'>
+              <h2>{title}</h2>
+              <h3>"{tagline}"</h3>
+              <p>Avg Rating: {average_rating}</p>
+              <p>Release Date: {release_date}</p>
+              <p>Genre: {genres}</p>
+              <p>Budget: {budget}</p>
+              <p>Revenue: {revenue}</p>
+              <p>Runtime: {runtime} minutes</p>
 
             <div className='trailer-video'>
               <iframe
@@ -71,11 +73,12 @@ class MovieDetails extends Component {
               ></iframe>
             </div>
             <Link to="/">Main View</Link>
-        </article>
-      </section>
+            </article>
+          </section>
       )
     }
-}
+  }
+// {!this.state.movieInfo && !this.state.movieTrailers && <h2 className='loading'>Loading...🍿</h2>}
 
 //             <h2>{movie.title}</h2>
 //             <h3>{movie.tagline}</h3>

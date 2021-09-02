@@ -14,7 +14,6 @@ const apiCalls = {
           throw Error('Error fetching movies')
         }
         const data = await response.json()
-        console.log(data)
         return data
       } catch(err) {
         console.log(err.message)
