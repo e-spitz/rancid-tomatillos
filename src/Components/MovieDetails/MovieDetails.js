@@ -59,8 +59,8 @@ class MovieDetails extends Component {
           <p>Avg Rating: {average_rating.toFixed(1)}</p>
           <p>Release Date: {this.formatDate(release_date)}</p>
           <p>Genre: {genres}</p>
-          <p>Budget: {`$${this.convertNumber(budget)}`}</p>
-          <p>Revenue: {`$${this.convertNumber(revenue)}`}</p>
+          <p>Budget: {!budget ? "Unavailable" :`$${this.convertNumber(budget)}`}</p>
+          <p>Revenue: {!revenue ? "Unavailable" :`$${this.convertNumber(revenue)}`}</p>
           <p>Runtime: {runtime} minutes</p>
 
           <div className='trailer-video'>
