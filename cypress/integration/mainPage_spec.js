@@ -4,8 +4,9 @@ describe('All movies main page', () => {
     cy.visit('http://localhost:3000/')
   });
 
-  it('Should be able to scroll to bottom of main page', () => {
+  it('Should be able to scroll to top and bottom of main page', () => {
     cy.scrollTo('bottom')
+    cy.scrollTo('top')
   });
 
   it('Should display a header for the home page', () => {
@@ -32,6 +33,6 @@ describe('All movies main page', () => {
 
   it('Should have hover styling on movie posters', () => {
     cy.get('.movie-poster').should('have.css', 'transition', 'all 0.2s ease-in-out 0s')
-  })
+  });
 
 });
