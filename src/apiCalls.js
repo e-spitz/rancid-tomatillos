@@ -21,14 +21,18 @@ const apiCalls = {
       }
     },
 
-    getMovieInfo(id) {
-      return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
-      .then(response => {
-      if (!response.ok || response.status === 500) {
-        throw Error('Error fetching movies')
+    async getMovieInfo(id) {
+      try {
+        const response = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
+        if (!response.ok || response.status === 500) {
+          throw Error('Error fetching movie')
+        }
+        const data = await response.json()
+        return data
+      } catch(err) {
+        console.log(err.message)
+        return err;
       }
-      return response.json()
-    })
   },
   async getMovieTrailer(id) {
     const response = await fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}/videos`);

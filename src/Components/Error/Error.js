@@ -6,7 +6,7 @@ const Error = () => {
     return (
         <div className='error'>
             <h2> 404 Error </h2>
-            <NavLink className='go-back' to='/'>
+            <NavLink className='go-back-main' to='/'>
                 Back to Movies
             </NavLink>
         </div>
