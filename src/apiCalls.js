@@ -14,13 +14,13 @@ const apiCalls = {
           throw Error('Error fetching movies')
         }
         const data = await response.json()
-        console.log(data)
         return data
       } catch(err) {
         console.log(err.message)
         return err;
       }
     },
+
     getMovieInfo(id) {
       return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => {
@@ -36,7 +36,7 @@ const apiCalls = {
       throw Error('Error fetching movies');
     }
     return await response.json();
-}
+  }
 
 }
 

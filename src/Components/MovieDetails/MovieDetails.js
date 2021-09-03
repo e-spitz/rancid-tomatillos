@@ -17,12 +17,6 @@ class MovieDetails extends Component {
       }
   }
 
-//     const splitDate = movie.release_date.split('-')
-//     const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
-//     const videoLink = `https://www.youtube.com/embed/${trailer.key}`
-//     const allGenres = movie.genres.map(genre => genre + ' ')
-
-
   componentDidMount() {
     const { id } = this.props
 
@@ -35,28 +29,35 @@ class MovieDetails extends Component {
         .catch(() => this.setState({ videoError: 'Sorry, this video is currently unavailable.'}))
   }
 
-    render() {
-      // console.log(this.state.movieInfo)
-      // console.log(this.state.movieTrailers)
+  formatDate(date) {
+    const splitDate = date.split('-');
+    const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0];
+    return newDate;
+  }
 
-      const {title, release_date, backdrop_path, poster_path, overview, genres, 
-        budget, revenue, tagline, average_rating, runtime} = this.state.movieInfo;
-        
-        // console.log(release_date.split())
-      // const splitDate = release_date.split('-')
-      // const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
-      const videoLink = `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
+  convertNumber(number) {
+   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+ }
 
+  render() {
+
+    const {title, release_date, backdrop_path, poster_path, overview, genres,
+      budget, revenue, tagline, average_rating, runtime} = this.state.movieInfo;
+
+    const videoLink = `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
+
+    if (title) {
+      const allGenres = genres.map(genre => genre + ' ');
       return (
-      <section className='movie-details' style={{ backgroundImage: `url(${backdrop_path})` }}>
-        <article className='movie-details-info'>
+        <section className='movie-details' style={{ backgroundImage: `url(${backdrop_path})` }}>
+          <article className='movie-details-info'>
             <h2>{title}</h2>
-            <h3>"{tagline}"</h3>
-            <p>Avg Rating: {average_rating}</p>
-            <p>Release Date: {release_date}</p>
-            <p>Genre: {genres}</p>
-            <p>Budget: {budget}</p>
-            <p>Revenue: {revenue}</p>
+            <h3 style={{display: !tagline && "none"}}>{tagline}</h3>
+            <p>Avg Rating: {average_rating.toFixed(1)}</p>
+            <p>Release Date: {this.formatDate(release_date)}</p>
+            <p>Genre: {allGenres}</p>
+            <p>Budget: {!budget ? "Unavailable" :`$${this.convertNumber(budget)}`}</p>
+            <p>Revenue: {!revenue ? "Unavailable" :`$${this.convertNumber(revenue)}`}</p>
             <p>Runtime: {runtime} minutes</p>
 
             <div className='trailer-video'>
@@ -71,22 +72,13 @@ class MovieDetails extends Component {
               ></iframe>
             </div>
             <Link to="/">Main View</Link>
-        </article>
-      </section>
+          </article>
+        </section>
       )
     }
+    return null
+  }
 }
-
-//             <h2>{movie.title}</h2>
-//             <h3>{movie.tagline}</h3>
-//             <h4 style={{display: !movie.overiew && "none"}}>{movie.overview}</h4>
-//             <p>Avg Rating: {movie.average_rating.toFixed(1)}</p>
-//             <p>Release Date: {newDate}</p>
-//             <p>Genre: {allGenres}</p>
-//             <p>Budget: {!movie.budget ? "Unavailable" : movie.budget}</p>
-//             <p>Revenue: {!movie.revenue ? "Unavailable" : movie.revenue}</p>
-//             <p>Runtime: {movie.runtime} minutes</p>
-
 
 MovieDetails.propTypes = {
    movieInfo: PropTypes.object,

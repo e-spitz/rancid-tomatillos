@@ -13,6 +13,17 @@
   padding: .1em;
 }
 
+.main-section {
+  background-color: black;
+}
+
+.loading {
+  color: white;
+  font-size: 40px;
+}
+
+
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
