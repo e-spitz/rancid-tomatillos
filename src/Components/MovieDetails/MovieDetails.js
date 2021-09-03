@@ -18,7 +18,6 @@ class MovieDetails extends Component {
   }
 
 //     const videoLink = `https://www.youtube.com/embed/${trailer.key}`
-//     const allGenres = movie.genres.map(genre => genre + ' ')
 
 
   componentDidMount() {
@@ -51,6 +50,7 @@ class MovieDetails extends Component {
       const videoLink = `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
 
       if (title) {
+        const allGenres = genres.map(genre => genre + ' ')
         return (
           <section className='movie-details' style={{ backgroundImage: `url(${backdrop_path})` }}>
           <article className='movie-details-info'>
@@ -58,7 +58,7 @@ class MovieDetails extends Component {
           <h3>"{tagline}"</h3>
           <p>Avg Rating: {average_rating.toFixed(1)}</p>
           <p>Release Date: {this.formatDate(release_date)}</p>
-          <p>Genre: {genres}</p>
+          <p>Genre: {allGenres}</p>
           <p>Budget: {!budget ? "Unavailable" :`$${this.convertNumber(budget)}`}</p>
           <p>Revenue: {!revenue ? "Unavailable" :`$${this.convertNumber(revenue)}`}</p>
           <p>Runtime: {runtime} minutes</p>
@@ -93,12 +93,6 @@ class MovieDetails extends Component {
 //             <p>Budget: {!movie.budget ? "Unavailable" : movie.budget}</p>
 //             <p>Revenue: {!movie.revenue ? "Unavailable" : movie.revenue}</p>
 //             <p>Runtime: {movie.runtime} minutes</p>
-
-
-
-  // console.log(release_date.split())
-  // const splitDate = release_date.split('-')
-  // const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
 
 MovieDetails.propTypes = {
    movieInfo: PropTypes.object,
