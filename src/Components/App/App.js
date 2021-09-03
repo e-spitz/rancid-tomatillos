@@ -34,7 +34,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={ () =>  <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}/>
             <Route path="/:id" render={({ match }) => <MovieDetails id={parseInt(match.params.id)} />}/>
-            <Route component={Error}/>
+            <Route to='*' component={Error}/>
           </Switch>
         </main>
       </div>

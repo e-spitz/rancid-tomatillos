@@ -9,9 +9,8 @@
   width: 100%;
   border-radius: 2%;
   border: 1px solid black;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out 0s;
 }
-
 
 img:hover {
   cursor: pointer;
