@@ -25,6 +25,13 @@ describe('Movie Details page', () => {
     cy.url().should('eq','http://localhost:3000/')
   });
 
+  it('Should be rendering Movie data on a single movie page', () => {
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401', {
+      statusCode: 201
+    });
+    cy.get('.movie-details').should('have.attr', 'style').should('include', 'https://image.tmdb.org/t/p/original//zzWGRw277MNoCs3zhyG3YmYQsXv.jpg')
+  });
+
 
 
 
