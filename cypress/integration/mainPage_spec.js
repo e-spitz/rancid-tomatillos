@@ -30,4 +30,8 @@ describe('All movies main page', () => {
       .get('.movies-container').should('be.visible').click({ multiple: true })
   });
 
+  it('Should have hover styling on movie posters', () => {
+    cy.get('.movie-poster').should('have.css', 'transition', 'all 0.2s ease-in-out 0s')
+  })
+
 });
