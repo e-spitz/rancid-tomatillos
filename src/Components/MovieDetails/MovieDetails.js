@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { getMovieInfo, getMovieTrailer } from '../../apiCalls'
-// import getMovieTrailer from '../../apiCalls'
 import './MovieDetails.css'
 const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
 
