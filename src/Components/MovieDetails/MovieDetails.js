@@ -39,6 +39,10 @@ class MovieDetails extends Component {
     return newDate;
   }
 
+  convertNumber(number) {
+   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+ }
+
     render() {
 
       const {title, release_date, backdrop_path, poster_path, overview, genres,
@@ -52,10 +56,10 @@ class MovieDetails extends Component {
           <article className='movie-details-info'>
           <h2>{title}</h2>
           <h3>"{tagline}"</h3>
-          <p>Avg Rating: {average_rating}</p>
+          <p>Avg Rating: {average_rating.toFixed(1)}</p>
           <p>Release Date: {this.formatDate(release_date)}</p>
           <p>Genre: {genres}</p>
-          <p>Budget: {budget}</p>
+          <p>Budget: {`$${this.convertNumber(budget)}`}</p>
           <p>Revenue: {revenue}</p>
           <p>Runtime: {runtime} minutes</p>
 
@@ -91,14 +95,6 @@ class MovieDetails extends Component {
 //             <p>Runtime: {movie.runtime} minutes</p>
 
 
-
-  // formatReleaseDate = (date) => {
-  //   const month = date.split('-')[1];
-  //   const day = date.split('-')[2];
-  //   const year = date.split('-')[0];
-  //   const formattedDate = `${month}/${day}/${year}`;
-  //   return formattedDate;
-  // }
 
   // console.log(release_date.split())
   // const splitDate = release_date.split('-')

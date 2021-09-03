@@ -30,7 +30,7 @@ class App extends Component {
         <Header />
         <main className="main-section">
         {this.state.err && <p>{this.state.err}</p>}
-        {!this.state.movies.length && <p className='loading'>Loading Movies...🍿</p>}
+        {!this.state.movies.length && <p className='loading'>Loading...🍿</p>}
         <Switch>
           <Route exact path="/" render={ () =>  <Movies movies={this.state.movies} getMovieInfo={this.getMovieInfo} getMovieTrailer={this.getMovieTrailer}/>}/>
           <Route path="/:id" render={({ match }) => <MovieDetails id={parseInt(match.params.id)} />}/>
