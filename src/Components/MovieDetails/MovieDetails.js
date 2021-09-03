@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import apiCalls from '../../apiCalls'
 import './MovieDetails.css'
 const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
@@ -71,7 +71,7 @@ class MovieDetails extends Component {
               allowFullScreen
               ></iframe>
             </div>
-            <Link to="/">Main View</Link>
+            <NavLink className='go-back' to="/">Main View</NavLink>
           </article>
         </section>
       )

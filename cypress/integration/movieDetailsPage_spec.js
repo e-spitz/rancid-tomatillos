@@ -17,7 +17,14 @@ describe('Movie Details page', () => {
       .should('have.attr', 'title', 'Embedded youtube')
       .should('have.attr', 'src')
         .should('include', 'https://www.youtube.com/embed/KK8FHdFluOQ')
-  })
+  });
+
+  it('Should return to main page when clicking Main View', () => {
+    cy.get('.go-back')
+      .click()
+    cy.url().should('eq','http://localhost:3000/')
+  });
+
 
 
 
