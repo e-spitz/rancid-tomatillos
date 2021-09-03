@@ -4,6 +4,10 @@ describe('All movies main page', () => {
     cy.visit('http://localhost:3000/')
   });
 
+  it('Should be able to scroll to bottom of main page', () => {
+    cy.scrollTo('bottom')
+  });
+
   it('Should display a header for the home page', () => {
     cy.get('header').should('be.visible')
       .get('h1')
@@ -14,6 +18,16 @@ describe('All movies main page', () => {
     cy.get('main').should('be.visible')
       .get('p')
         .contains('Loading...🍿')
+  });
+
+  it('Should display all movies rendering on main', () => {
+    cy.get('main').should('be.visible')
+      .get('.movies-container').should('be.visible')
+  });
+
+  it('Should display a movie image for each movie card', () => {
+    cy.get('main').should('be.visible')
+      .get('.movies-container').should('be.visible').click({ multiple: true })
   });
 
 });
