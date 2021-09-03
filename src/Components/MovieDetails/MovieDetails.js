@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import apiCalls from '../../apiCalls'
+import { getMovieInfo, getMovieTrailer } from '../../apiCalls'
 import './MovieDetails.css'
 const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
 
@@ -20,11 +20,11 @@ class MovieDetails extends Component {
   componentDidMount() {
     const { id } = this.props
 
-    apiCalls.getMovieInfo(id)
+    getMovieInfo(id)
         .then(movie => this.setState({ movieInfo: movie.movie }))
         .catch(() => this.setState({ movieError: 'Having trouble finding movie information right now...please try again.'} ));
 
-      apiCalls.getMovieTrailer(id)
+    getMovieTrailer(id)
         .then(video => {this.setState({ movieTrailers: video.videos.find(video => video.type === "Trailer") })})
         .catch(() => this.setState({ videoError: 'Sorry, this video is currently unavailable.'}))
   }
