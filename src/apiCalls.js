@@ -20,6 +20,7 @@ const apiCalls = {
         return err;
       }
     },
+
     getMovieInfo(id) {
       return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${id}`)
       .then(response => {
@@ -35,7 +36,7 @@ const apiCalls = {
       throw Error('Error fetching movies');
     }
     return await response.json();
-}
+  }
 
 }
 

@@ -7,7 +7,7 @@ const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
 
 
 class MovieDetails extends Component {
-    constructor({props}) {
+    constructor(props) {
       super(props);
       this.state = {
           movieInfo: {},
@@ -17,8 +17,6 @@ class MovieDetails extends Component {
       }
   }
 
-//     const splitDate = movie.release_date.split('-')
-//     const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
 //     const videoLink = `https://www.youtube.com/embed/${trailer.key}`
 //     const allGenres = movie.genres.map(genre => genre + ' ')
 
@@ -35,47 +33,49 @@ class MovieDetails extends Component {
         .catch(() => this.setState({ videoError: 'Sorry, this video is currently unavailable.'}))
   }
 
+  formatDate(date) {
+    const splitDate = date.split('-');
+    const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0];
+    return newDate;
+  }
+
     render() {
-      // console.log(this.state.movieInfo)
-      // console.log(this.state.movieTrailers)
 
       const {title, release_date, backdrop_path, poster_path, overview, genres,
         budget, revenue, tagline, average_rating, runtime} = this.state.movieInfo;
 
-        // console.log(release_date.split())
-      // const splitDate = release_date.split('-')
-      // const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
       const videoLink = `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
 
+      if (title) {
         return (
           <section className='movie-details' style={{ backgroundImage: `url(${backdrop_path})` }}>
+          <article className='movie-details-info'>
+          <h2>{title}</h2>
+          <h3>"{tagline}"</h3>
+          <p>Avg Rating: {average_rating}</p>
+          <p>Release Date: {this.formatDate(release_date)}</p>
+          <p>Genre: {genres}</p>
+          <p>Budget: {budget}</p>
+          <p>Revenue: {revenue}</p>
+          <p>Runtime: {runtime} minutes</p>
 
-
-            <article className='movie-details-info'>
-              <h2>{title}</h2>
-              <h3>"{tagline}"</h3>
-              <p>Avg Rating: {average_rating}</p>
-              <p>Release Date: {release_date}</p>
-              <p>Genre: {genres}</p>
-              <p>Budget: {budget}</p>
-              <p>Revenue: {revenue}</p>
-              <p>Runtime: {runtime} minutes</p>
-
-            <div className='trailer-video'>
-              <iframe
-              title='Embedded youtube'
-              className='video'
-              width='450'
-              height='200'
-              src={videoLink}
-              frameBorder='0'
-              allowFullScreen
-              ></iframe>
-            </div>
-            <Link to="/">Main View</Link>
-            </article>
+          <div className='trailer-video'>
+          <iframe
+          title='Embedded youtube'
+          className='video'
+          width='450'
+          height='200'
+          src={videoLink}
+          frameBorder='0'
+          allowFullScreen
+          ></iframe>
+          </div>
+          <Link to="/">Main View</Link>
+          </article>
           </section>
-      )
+        )
+      }
+      return null
     }
   }
 // {!this.state.movieInfo && !this.state.movieTrailers && <h2 className='loading'>Loading...🍿</h2>}
@@ -90,6 +90,19 @@ class MovieDetails extends Component {
 //             <p>Revenue: {!movie.revenue ? "Unavailable" : movie.revenue}</p>
 //             <p>Runtime: {movie.runtime} minutes</p>
 
+
+
+  // formatReleaseDate = (date) => {
+  //   const month = date.split('-')[1];
+  //   const day = date.split('-')[2];
+  //   const year = date.split('-')[0];
+  //   const formattedDate = `${month}/${day}/${year}`;
+  //   return formattedDate;
+  // }
+
+  // console.log(release_date.split())
+  // const splitDate = release_date.split('-')
+  // const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
 
 MovieDetails.propTypes = {
    movieInfo: PropTypes.object,
