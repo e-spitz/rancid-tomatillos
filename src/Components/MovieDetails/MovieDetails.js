@@ -17,9 +17,6 @@ class MovieDetails extends Component {
       }
   }
 
-//     const videoLink = `https://www.youtube.com/embed/${trailer.key}`
-
-
   componentDidMount() {
     const { id } = this.props
 
