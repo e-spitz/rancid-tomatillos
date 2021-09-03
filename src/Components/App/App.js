@@ -5,7 +5,7 @@ import Movies from '../Movies/Movies';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import Header from '../Header/Header'
 import Error from '../Error/Error';
-import apiCalls from '../../apiCalls';
+import { getMovieData }  from '../../apiCalls';
 
 class App extends Component {
   constructor() {
@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    apiCalls.getMovieData()
+    getMovieData()
     .then(data => this.setState({ movies: data.movies }))
     .catch(err => this.setState({error: err}))
   }
