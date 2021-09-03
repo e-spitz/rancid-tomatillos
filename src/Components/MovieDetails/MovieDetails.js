@@ -60,7 +60,7 @@ class MovieDetails extends Component {
           <p>Release Date: {this.formatDate(release_date)}</p>
           <p>Genre: {genres}</p>
           <p>Budget: {`$${this.convertNumber(budget)}`}</p>
-          <p>Revenue: {revenue}</p>
+          <p>Revenue: {`$${this.convertNumber(revenue)}`}</p>
           <p>Runtime: {runtime} minutes</p>
 
           <div className='trailer-video'>
