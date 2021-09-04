@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import './SearchForm.css';
 
 class SearchForm extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = {
         title: '',
       }
@@ -23,7 +23,7 @@ class SearchForm extends Component {
             value={this.state.title}
             onChange={event => this.handleChange(event)}
           />
-          <button>Search</button>
+          <button onClick={evenet => this.props.searchMovie(this.state.title)}>Search</button>
         </form>
       )
     }

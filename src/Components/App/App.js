@@ -25,10 +25,16 @@ class App extends Component {
     .catch(err => this.setState({error: err}))
   }
 
+  searchMovie= (title) => {
+    let filteredMovie = this.state.movies.filter(movie => movie === title)
+    console.log(filteredMovie)
+  }
+
   render() {
     return (
       <div className="app">
           <Header />
+          <SearchForm />
           {/* <Error /> */}
           <main className="main-section">
           {this.state.err && <p>{this.state.err}</p>}
