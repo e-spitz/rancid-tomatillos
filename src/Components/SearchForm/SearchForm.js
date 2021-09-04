@@ -34,7 +34,7 @@ class SearchForm extends Component {
             value={this.state.title}
             onChange={event => this.handleChange(event)}
           />
-          <Link to={`/${this.state.title}`}>
+          <Link to={`/search/${this.state.title}`}>
             {/* <button onClick={event => this.sendRequest(event)}>Search</button> */}
             <button>Search</button>
           </Link>

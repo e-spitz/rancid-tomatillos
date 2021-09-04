@@ -5,7 +5,7 @@ import './Movie.css'
 
 const Movie = ({id, poster, title}) => {
     return  (
-       <Link to={`/${id}`}>
+       <Link to={`/movie/${id}`}>
             <div className="movie-card">
                 <img className='movie-poster' src={poster} alt={'Cover image for ' + title}></img>
             </div>
