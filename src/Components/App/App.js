@@ -15,6 +15,7 @@ class App extends Component {
       movies: [],
       movieInfo: null,
       video: null,
+      filteredMov: [],
       err: ''
     }
   }
@@ -26,13 +27,14 @@ class App extends Component {
   }
 
   searchMovie= (title) => {
-    console.log(title)
-    console.log(this.state.movies)
-    console.log(this.state.movies.filter(movie => console.log(movie.title)))
-    console.log(this.state.movies.filter(movie => movie.title === "mulan"))
+    // console.log(title)
+    // console.log(this.state.movies)
+    // console.log(this.state.movies.filter(movie => console.log(movie.title)))
+    // console.log(this.state.movies.filter(movie => movie.title === "mulan"))
 
-    const test = this.state.movies.filter(movie => movie.title === title)
-    console.log('test:', test)
+    const searchedMov = this.state.movies.filter(movie => movie.title.includes(title))
+    console.log('test:', searchedMov)
+    this.setState({ movies: searchedMov})
   }
 
   render() {

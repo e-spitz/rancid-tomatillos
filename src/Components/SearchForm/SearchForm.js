@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from 'react-router-dom';
 import './SearchForm.css';
 
 class SearchForm extends Component {
@@ -33,7 +34,10 @@ class SearchForm extends Component {
             value={this.state.title}
             onChange={event => this.handleChange(event)}
           />
-          <button onClick={event => this.sendRequest(event)}>Search</button>
+          <Link to={`/${this.state.title}`}>
+            {/* <button onClick={event => this.sendRequest(event)}>Search</button> */}
+            <button>Search</button>
+          </Link>
         </form>
       )
     }
