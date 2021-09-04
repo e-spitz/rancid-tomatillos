@@ -28,8 +28,11 @@ class App extends Component {
   searchMovie= (title) => {
     console.log(title)
     console.log(this.state.movies)
-    // let filteredMovie = this.state.movies.filter(movie => movie === title)
-    // console.log(filteredMovie)
+    console.log(this.state.movies.filter(movie => console.log(movie.title)))
+    console.log(this.state.movies.filter(movie => movie.title === "mulan"))
+
+    const test = this.state.movies.filter(movie => movie.title === title)
+    console.log('test:', test)
   }
 
   render() {
