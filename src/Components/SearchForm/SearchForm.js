@@ -11,7 +11,17 @@ class SearchForm extends Component {
 
     handleChange = event => {
         this.setState({ title: event.target.value });
-      }
+    }
+
+    sendRequest = eventClick => {
+        eventClick.preventDefault();
+        this.props.searchMovie(this.state.title);
+        this.clearInputs();
+    }
+
+    clearInputs = () => {
+        this.setState({ title: '' });
+    }
   
     render() {
       return (
@@ -23,7 +33,7 @@ class SearchForm extends Component {
             value={this.state.title}
             onChange={event => this.handleChange(event)}
           />
-          <button onClick={evenet => this.props.searchMovie(this.state.title)}>Search</button>
+          <button onClick={event => this.sendRequest(event)}>Search</button>
         </form>
       )
     }
