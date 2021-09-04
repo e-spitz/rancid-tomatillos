@@ -3,7 +3,8 @@ import React, { Component } from "react";
 import { Redirect, Route, Switch, Router } from 'react-router-dom';
 import Movies from '../Movies/Movies';
 import MovieDetails from '../MovieDetails/MovieDetails';
-import Header from '../Header/Header'
+import Header from '../Header/Header';
+import SearchForm from '../SearchForm/SearchForm';
 import Error from '../Error/Error';
 import { getMovieData }  from '../../apiCalls';
 
