@@ -8,6 +8,10 @@ class SearchForm extends Component {
         title: '',
       }
     }
+
+    handleChange = event => {
+        this.setState({ title: event.target.value });
+      }
   
     render() {
       return (
@@ -17,6 +21,7 @@ class SearchForm extends Component {
             placeholder='Movie Title'
             name='title'
             value={this.state.title}
+            onChange={event => this.handleChange(event)}
           />
           <button>Search</button>
         </form>
