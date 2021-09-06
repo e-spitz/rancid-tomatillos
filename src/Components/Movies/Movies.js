@@ -85,13 +85,6 @@ class Movies extends Component {
   // }
 
   render() {
-    // if (!this.state.movies.length && !this.state.error) {
-    //   return(
-    //     <p className='loading'>Loading...🍿</p>
-    //   )
-    // }
-
-
     return (
       <section>
         <SearchForm /> 
@@ -105,23 +98,19 @@ class Movies extends Component {
       </section>
     )
   }
+  // Same as:
+  // if (!this.state.movies.length && !this.state.error) {
+  //   return(
+  //     <p className='loading'>Loading...🍿</p>
+  //   )
+  // }
   
 }
 
-// Movies.propTypes = {
-  //   movieCards: PropTypes.array,
-  //   splitDate: PropTypes.string,
-  //   newDate: PropTypes.string,
-  // }
+Movies.propTypes = {
+    movieCards: PropTypes.array,
+    splitDate: PropTypes.string,
+    newDate: PropTypes.string,
+  }
   
   export default Movies;
-  
-  // {this.state.movies && this.state.filteredMovies &&
-  //   <section>
-  //     {this.renderFilteredMovies()}
-  //     {/* {Un componenete para hacer el render de las peliculas filtradas:
-  //     Se puede pasasr this.state.movies como prop 
-  //     Pasar el metodo renderFilteredMovies()
-  //     } */}
-  //   </section>
-  //   }
