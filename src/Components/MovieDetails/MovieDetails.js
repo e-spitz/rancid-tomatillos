@@ -69,6 +69,7 @@ class MovieDetails extends Component {
               allowFullScreen
               ></iframe>
             </div>
+            <a href={videoLink} className="trailer-link hidden">Click here for trailer</a> 
             <NavLink className='go-back' to="/">Main View</NavLink>
           </article>
         </section>
