@@ -9,7 +9,7 @@ class MovieDetails extends Component {
       super(props);
       this.state = {
           movieInfo: {},
-          movieTrailers: '',
+          movieTrailers: [],
           movieError: '',
           videoError: '',
       }
@@ -38,28 +38,27 @@ class MovieDetails extends Component {
  }
 
   render() {
-
     const {title, release_date, backdrop_path, genres,
       budget, revenue, tagline, average_rating, runtime} = this.state.movieInfo;
 
-    const videoLink = `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
-
     if (title) {
       const allGenres = genres.map(genre => genre + ' ');
+      const videoLink = this.state.movieTrailers && `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
+      const backDrop = this.state.movieInfo && `url(${backdrop_path})`
       return (
-        <section className='movie-details' style={{ backgroundImage: `url(${backdrop_path})` }}>
+        <section className='movie-details' style={{ backgroundImage: backDrop }}>
           <article className='movie-details-info'>
             <h2>{title.toUpperCase()}</h2>
             <h3 style={{display: !tagline && "none"}}>{tagline}</h3>
             <p className='details'>Avg Rating: {average_rating.toFixed(1)}</p>
             <p className='details'>Release Date: {this.formatDate(release_date)}</p>
-            <p className='details'>Genre: {allGenres}</p>
+            <p className='details'>Genre: {!allGenres.length ? "Unavailable" : allGenres}</p>
             <p className='details'>Budget: {!budget ? "Unavailable" :`$${this.convertNumber(budget)}`}</p>
             <p className='details'>Revenue: {!revenue ? "Unavailable" :`$${this.convertNumber(revenue)}`}</p>
-            <p className='details'>Runtime: {runtime} minutes</p>
-
+            <p className='details'>Runtime: {runtime ? runtime + " minutes" : "Unavailable"}</p>
             <div className='trailer-video'>
               <iframe
+              style={{display: !videoLink && "none"}}
               title='Embedded youtube'
               className='video'
               width='450'
@@ -69,7 +68,7 @@ class MovieDetails extends Component {
               allowFullScreen
               ></iframe>
             </div>
-            <a href={videoLink} className="trailer-link hidden">Click here for trailer</a> 
+            <a href={videoLink} className="trailer-link hidden">Click here for trailer</a>
             <NavLink className='go-back' to="/">Main View</NavLink>
           </article>
         </section>
@@ -78,6 +77,7 @@ class MovieDetails extends Component {
     return null
   }
 }
+
 
 MovieDetails.propTypes = {
    movieInfo: PropTypes.object,
