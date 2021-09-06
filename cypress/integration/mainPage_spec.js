@@ -40,4 +40,8 @@ describe('All movies main page', () => {
     .type('Search Movie Title')
   });
 
+  it('Should have a search button to click and filter movies', () => {
+    cy.get('button').click()
+  })
+
 });
