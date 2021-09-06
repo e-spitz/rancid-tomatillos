@@ -1,0 +1,9 @@
+.filtered-movies-container {
+    margin: 0%;
+    width: 100vw;
+    height: 100vh;
+    padding: 1em;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+  }

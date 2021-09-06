@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Movie from '../Movie/Movie';
+import Loader from '../Loader/Loader';
 import PropTypes from 'prop-types';
 import SearchForm from '../SearchForm/SearchForm';
 import { getMovieData }  from '../../apiCalls';
@@ -95,7 +96,7 @@ class Movies extends Component {
       <section>
         <SearchForm /> 
         {!this.state.movies.length && this.state.error && <h2>500 Error!</h2>}
-        {!this.state.movies.length && !this.state.error && <p className='loading'>Loading...🍿</p>}
+        {!this.state.movies.length && !this.state.error && <Loader />}
         {!this.state.error && this.state.movies.length &&
           <section>
             {this.renderAllMovies()}

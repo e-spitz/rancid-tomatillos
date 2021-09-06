@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SearchForm from '../SearchForm/SearchForm';
 import { getMovieData }  from '../../apiCalls';
 import { NavLink } from 'react-router-dom';
-// import './Movies.css'
+import './FilteredMovies.css'
 
 class FilteredMovies extends Component {
   //  = (props) => {
@@ -77,9 +77,9 @@ class FilteredMovies extends Component {
     })
     return (
       <section>
-        <div className='movies-container'>
-          {searchedMovies}
           <NavLink className='go-back' to="/">Main View</NavLink>
+        <div className='filtered-movies-container'>
+          {searchedMovies}
         </div>
       </section>
       )
