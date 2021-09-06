@@ -20,7 +20,7 @@ describe('Filtered movies page', () => {
       .get('.filtered-movies-container').should('be.visible')
   });
 
-  it('Should display a movie image for each movie card', () => {
+  it('Should display movie details after clicking image', () => {
     cy.get('section').should('be.visible')
       .get('.filtered-movies-container').should('be.visible')
       .get('img')
