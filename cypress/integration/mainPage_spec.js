@@ -16,8 +16,8 @@ describe('All movies main page', () => {
   });
 
   it('Should display a loading message while movies are loading', () => {
-    cy.get('main').should('be.visible')
-      .get('p')
+    cy.get('.movies-section').should('be.visible')
+      .get('h2')
         .contains('Loading...🍿')
   });
 
@@ -28,11 +28,16 @@ describe('All movies main page', () => {
 
   it('Should display a movie image for each movie card', () => {
     cy.get('main').should('be.visible')
-      .get('.movies-container').should('be.visible').click({ multiple: true })
+      .get('.movies-section').should('be.visible').click()
   });
 
   it('Should have hover styling on movie posters', () => {
     cy.get('.movie-poster').should('have.css', 'transition', 'all 0.2s ease-in-out 0s')
+  });
+
+  it('Should have a search bar for movie titles', () => {
+    cy.get('input[type=text]')
+    .type('Search Movie Title')
   });
 
 });
