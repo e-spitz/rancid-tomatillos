@@ -1,0 +1,9 @@
+.loading {
+    margin: 0%;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    margin-top: 30%;
+}

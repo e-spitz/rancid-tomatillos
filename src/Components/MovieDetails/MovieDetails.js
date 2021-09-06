@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { getMovieInfo, getMovieTrailer } from '../../apiCalls'
 import './MovieDetails.css'
-const url = 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/'
-
 
 class MovieDetails extends Component {
     constructor(props) {
@@ -41,7 +39,7 @@ class MovieDetails extends Component {
 
   render() {
 
-    const {title, release_date, backdrop_path, poster_path, overview, genres,
+    const {title, release_date, backdrop_path, genres,
       budget, revenue, tagline, average_rating, runtime} = this.state.movieInfo;
 
     const videoLink = `https://www.youtube.com/embed/${this.state.movieTrailers.key}`
@@ -75,7 +73,7 @@ class MovieDetails extends Component {
           </article>
         </section>
       )
-    }
+    } 
     return null
   }
 }
