@@ -4,3 +4,30 @@
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1em;
 }
+
+.go-back {
+  color: red;
+  font-size: 20px;
+  margin-bottom: 4%;
+}
+
+@media screen and (max-width: 850px) {
+  .movies-container {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: .75em;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .movies-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: .5em;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .movies-container {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: .5em;
+  }
+}

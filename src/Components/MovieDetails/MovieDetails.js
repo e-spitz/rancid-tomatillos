@@ -49,31 +49,32 @@ class MovieDetails extends Component {
       return (
         <section className='movie-details' style={{ backgroundImage: `url(${backdrop_path})` }}>
           <article className='movie-details-info'>
-            <h2>{title}</h2>
+            <h2>{title.toUpperCase()}</h2>
             <h3 style={{display: !tagline && "none"}}>{tagline}</h3>
-            <p>Avg Rating: {average_rating.toFixed(1)}</p>
-            <p>Release Date: {this.formatDate(release_date)}</p>
-            <p>Genre: {allGenres}</p>
-            <p>Budget: {!budget ? "Unavailable" :`$${this.convertNumber(budget)}`}</p>
-            <p>Revenue: {!revenue ? "Unavailable" :`$${this.convertNumber(revenue)}`}</p>
-            <p>Runtime: {runtime} minutes</p>
+            <p className='details'>Avg Rating: {average_rating.toFixed(1)}</p>
+            <p className='details'>Release Date: {this.formatDate(release_date)}</p>
+            <p className='details'>Genre: {allGenres}</p>
+            <p className='details'>Budget: {!budget ? "Unavailable" :`$${this.convertNumber(budget)}`}</p>
+            <p className='details'>Revenue: {!revenue ? "Unavailable" :`$${this.convertNumber(revenue)}`}</p>
+            <p className='details'>Runtime: {runtime} minutes</p>
 
             <div className='trailer-video'>
               <iframe
               title='Embedded youtube'
               className='video'
               width='450'
-              height='200'
+              height='300'
               src={videoLink}
               frameBorder='0'
               allowFullScreen
               ></iframe>
             </div>
+            <a href={videoLink} className="trailer-link hidden">Click here for trailer</a> 
             <NavLink className='go-back' to="/">Main View</NavLink>
           </article>
         </section>
       )
-    } 
+    }
     return null
   }
 }
