@@ -55,7 +55,7 @@ class FilteredMovies extends Component {
     // console.log(this.state.movies)
     // console.log(this.state.movies.filter(movie => console.log(movie.title)))
     // console.log(this.state.movies.filter(movie => movie.title === "mulan"))
-    const searchedMov = this.state.movies.filter(movie => movie.title.includes(this.props.title))
+    const searchedMov = this.state.movies.filter(movie => movie.title.toLowerCase().includes(this.props.title))
     // console.log('test:', searchedMov)
     this.setState({ filteredMovies: searchedMov})
     }
