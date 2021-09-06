@@ -38,12 +38,8 @@ class MovieDetails extends Component {
  }
 
   render() {
-    console.log(this.state.movieTrailers)
-    console.log(this.state.videoError);
     const {title, release_date, backdrop_path, genres,
       budget, revenue, tagline, average_rating, runtime} = this.state.movieInfo;
-
-
 
     if (title) {
       const allGenres = genres.map(genre => genre + ' ');
@@ -72,6 +68,7 @@ class MovieDetails extends Component {
               allowFullScreen
               ></iframe>
             </div>
+            <a href={videoLink} className="trailer-link hidden">Click here for trailer</a>
             <NavLink className='go-back' to="/">Main View</NavLink>
           </article>
         </section>
@@ -81,7 +78,6 @@ class MovieDetails extends Component {
   }
 }
 
-// <a href={videoLink} className="trailer-link hidden">Click here for trailer</a>
 
 MovieDetails.propTypes = {
    movieInfo: PropTypes.object,
