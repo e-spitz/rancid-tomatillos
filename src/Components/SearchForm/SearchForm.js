@@ -23,13 +23,13 @@ class SearchForm extends Component {
     clearInputs = () => {
         this.setState({ title: '' });
     }
-  
+
     render() {
       return (
         <form>
           <input
             type='text'
-            placeholder='Movie Title'
+            placeholder='Search Movie Title'
             name='title'
             value={this.state.title}
             onChange={event => this.handleChange(event)}
@@ -42,5 +42,5 @@ class SearchForm extends Component {
       )
     }
   }
-  
+
   export default SearchForm;

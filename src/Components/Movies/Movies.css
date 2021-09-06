@@ -5,6 +5,12 @@
   grid-gap: 1em;
 }
 
+.go-back {
+  color: red;
+  font-size: 20px;
+  margin-bottom: 4%;
+}
+
 @media screen and (max-width: 850px) {
   .movies-container {
     grid-template-columns: repeat(3, 1fr);
