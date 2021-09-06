@@ -51,7 +51,7 @@ class Movies extends Component {
 
   render() {
     return (
-      <section>
+      <section className='movies-section'>
         <SearchForm />
         {!this.state.movies.length && this.state.error && <h2>500 Error!</h2>}
         {!this.state.movies.length && !this.state.error && <Loader />}
