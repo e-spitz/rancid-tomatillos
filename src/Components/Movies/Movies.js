@@ -50,40 +50,6 @@ class Movies extends Component {
       )
   }
 
-  // renderFilteredMovies = () => {
-  //   const searchedMovies = this.state.filteredMovies.map(movie => {
-  //     const splitDate = movie.release_date.split('-')
-  //     const newDate = splitDate[1] + '-' + splitDate[2] + '-' + splitDate[0]
-  //       return (
-  //           <Movie
-  //               poster={movie.poster_path}
-  //               background={movie.backdrop_path}
-  //               title={movie.title}
-  //               avgRating={movie.average_rating.toFixed(1)}
-  //               releaseDate={newDate}
-  //               id={movie.id}
-  //               key={movie.id}
-  //           />
-  //       )
-  //   })
-  //   return (
-  //       <div className='movies-container'>
-  //         {searchedMovies}
-  //         <NavLink className='go-back' to="/">Main View</NavLink>
-  //       </div>
-  //     )
-  // }
-
-  // searchMovie= (title) => {
-  //   // console.log(title)
-  //   // console.log(this.state.movies)
-  //   // console.log(this.state.movies.filter(movie => console.log(movie.title)))
-  //   // console.log(this.state.movies.filter(movie => movie.title === "mulan"))
-  //   const searchedMov = this.state.movies.filter(movie => movie.title.includes(title))
-  //   console.log('test:', searchedMov)
-  //   this.setState({ filteredMovies: searchedMov})
-  // }
-
   render() {
     return (
       <section>

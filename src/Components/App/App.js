@@ -14,7 +14,7 @@ const App = () => {
           <main className="main-section">
             <Switch>
               <Route exact path="/" render={ () =>  <Movies />}/>
-              <Route excat path="/search/:title" render={ ({match}) =>  <FilteredMovies title={match.params.title}/>}/>
+              <Route exact path="/search/:title" render={ ({match}) =>  <FilteredMovies title={match.params.title}/>}/>
               <Route exact path="/movie/:id" render={({ match }) => <MovieDetails id={parseInt(match.params.id)} />}/>
               <Route path="*" render={() => <Error />}/>
             </Switch>

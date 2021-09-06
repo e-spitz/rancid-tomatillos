@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { getMovieInfo, getMovieTrailer } from '../../apiCalls'
 import './MovieDetails.css'
 
-
 class MovieDetails extends Component {
     constructor(props) {
       super(props);
