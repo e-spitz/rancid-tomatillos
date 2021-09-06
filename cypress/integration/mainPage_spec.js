@@ -41,7 +41,10 @@ describe('All movies main page', () => {
   });
 
   it('Should have a search button to click and filter movies', () => {
-    cy.get('button').click()
-  })
+    cy.get('form')
+      .type('mulan')
+      .get('button').click()
+      .get('.filtered-movies-container').should('be.visible')
+  });
 
 });

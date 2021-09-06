@@ -14,8 +14,8 @@ class SearchForm extends Component {
         this.setState({ title: event.target.value });
     }
 
-    sendRequest = eventClick => {
-        eventClick.preventDefault();
+    sendRequest = event => {
+        event.preventDefault();
         this.props.searchMovie(this.state.title);
         this.clearInputs();
     }
@@ -35,7 +35,6 @@ class SearchForm extends Component {
             onChange={event => this.handleChange(event)}
           />
           <Link to={`/search/${this.state.title}`}>
-            {/* <button onClick={event => this.sendRequest(event)}>Search</button> */}
             <button>Search</button>
           </Link>
         </form>
