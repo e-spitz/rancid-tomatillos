@@ -27,4 +27,4 @@ describe('Error page', () => {
       .click()
     cy.url().should('eq','http://localhost:3000/')
   });
-})
+});
