@@ -45,7 +45,6 @@ class Movies extends Component {
     return (
         <div className='movies-container'>
           {movieCards}
-          <NavLink className='go-back' to="/">Main View</NavLink>
         </div>
       )
   }
@@ -53,7 +52,7 @@ class Movies extends Component {
   render() {
     return (
       <section>
-        <SearchForm /> 
+        <SearchForm />
         {!this.state.movies.length && this.state.error && <h2>500 Error!</h2>}
         {!this.state.movies.length && !this.state.error && <Loader />}
         {!this.state.error && this.state.movies.length &&
@@ -70,7 +69,7 @@ class Movies extends Component {
   //     <p className='loading'>Loading...🍿</p>
   //   )
   // }
-  
+
 }
 
 Movies.propTypes = {
@@ -78,5 +77,5 @@ Movies.propTypes = {
     splitDate: PropTypes.string,
     newDate: PropTypes.string,
   }
-  
+
   export default Movies;
