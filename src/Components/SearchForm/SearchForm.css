@@ -1,0 +1,21 @@
+input {
+    background: none;
+    color: #5e5d5d;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    border: none;
+    border-bottom: 2px solid hsla(9, 91%, 41%, 0.728)
+}
+
+input:focus {
+    outline: none;
+    color: #fff;
+}
+
+button {
+    color: rgb(138, 4, 4);
+    height: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
