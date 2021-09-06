@@ -23,3 +23,22 @@ button {
     cursor: pointer;
 }
 
+@media screen and (max-width: 550px) {
+  input {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  input {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+}
