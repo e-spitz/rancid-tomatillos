@@ -48,7 +48,7 @@ To solidify and demonstrate the understanding of:
 
 #### Accessibility
 - Site displays a 100% accessibility rating<br>
-![Accessibility](public/accessibility.png)
+<img width="500" alt="Screen Shot 2021-09-06 at 8 05 17 PM" src="https://user-images.githubusercontent.com/73204436/132273171-588f3797-ce9f-48f2-b2fb-c6c93c628729.png">
 
 
 ## Future Additions
