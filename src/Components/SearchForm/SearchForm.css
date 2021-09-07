@@ -1,10 +1,10 @@
 form {
     margin-bottom: 3%;
-    color: white;
 }
 
 input {
     background: none;
+    color: #5e5d5d;
     font-size: 18px;
     padding: 10px 10px 3px 5px;
     border: none;
@@ -12,12 +12,8 @@ input {
 }
 
 input:focus {
-  outline: none;
-  color: whitesmoke;
-}
-
-::placeholder {
-  color: whitesmoke;
+    outline: none;
+    color: #fff;
 }
 
 button {
