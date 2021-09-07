@@ -11,6 +11,11 @@ input {
     border-bottom: 2px solid hsla(9, 91%, 41%, 0.728);
 }
 
+input:focus {
+  outline: none;
+  color: whitesmoke;
+}
+
 ::placeholder {
   color: whitesmoke;
 }
