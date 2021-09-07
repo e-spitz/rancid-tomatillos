@@ -62,7 +62,7 @@ To solidify and demonstrate the understanding of:
 
 To view our application on your local device:
 
-- Clone down ![this](https://github.com/e-spitz/rancid-tomatillos) repository
+- Clone down [this](https://github.com/e-spitz/rancid-tomatillos) repository
 - Run `npm i` in your terminal
 - Run `npm start` in your terminal
 - To view Cypress tests open a separate tab in your terminal and run `npm run cypress`
