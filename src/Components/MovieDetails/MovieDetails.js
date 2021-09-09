@@ -69,7 +69,7 @@ class MovieDetails extends Component {
               ></iframe>
             </div>
             <a href={videoLink} className="trailer-link hidden">Click here for trailer</a>
-            <NavLink className='go-back' to="/">Main View</NavLink>
+            <NavLink className='go-back' to="/rancid-tomatillos/">Main View</NavLink>
           </article>
         </section>
       )

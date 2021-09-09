@@ -13,10 +13,10 @@ const App = () => {
           <Header />
           <main className="main-section">
             <Switch>
-              <Route exact path="/" render={ () =>  <Movies />}/>
-              <Route exact path="/search/:title" render={ ({ match }) => <FilteredMovies title={match.params.title}/>}/>
-              <Route exact path="/search/" render={ () => <Movies />}/>
-              <Route exact path="/movie/:id" render={({ match }) => <MovieDetails id={parseInt(match.params.id)} />}/>
+              <Route exact path="/rancid-tomatillos" render={ () =>  <Movies />}/>
+              <Route exact path="/rancid-tomatillos/search/:title" render={ ({ match }) => <FilteredMovies title={match.params.title}/>}/>
+              <Route exact path="/rancid-tomatillos/search/" render={ () => <Movies />}/>
+              <Route exact path="/rancid-tomatillos/movie/:id" render={({ match }) => <MovieDetails id={parseInt(match.params.id)} />}/>
               <Route path="*" render={() => <Error />}/>
             </Switch>
           </main>

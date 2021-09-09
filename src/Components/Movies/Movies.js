@@ -8,7 +8,6 @@ import { NavLink } from 'react-router-dom';
 import './Movies.css'
 
 class Movies extends Component {
-  //  = (props) => {
   constructor() {
     super()
     this.state = {
@@ -63,13 +62,6 @@ class Movies extends Component {
       </section>
     )
   }
-  // Same as:
-  // if (!this.state.movies.length && !this.state.error) {
-  //   return(
-  //     <p className='loading'>Loading...🍿</p>
-  //   )
-  // }
-
 }
 
 Movies.propTypes = {

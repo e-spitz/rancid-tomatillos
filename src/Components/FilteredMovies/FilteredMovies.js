@@ -42,7 +42,7 @@ class FilteredMovies extends Component {
     return (
         <div className='movies-container'>
           {searchedMovies}
-          <NavLink className='go-back' to="/">Main View</NavLink>
+          <NavLink className='go-back' to="/rancid-tomatillos/">Main View</NavLink>
         </div>
       )
   }
