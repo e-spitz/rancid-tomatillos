@@ -11,4 +11,4 @@ workflows:
   sample:
     jobs:
       - cypress/run:
-        start: 'npm start'
+        start: npm start
